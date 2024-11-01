@@ -1,11 +1,6 @@
-from flask_migrate import MigrateCommand
-from flask_script import Manager
-from app import app
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+from app import app  # assuming app is your Flask instance
 
-manager = Manager(app)
-
-# Database migrations command
-manager.add_command('db', MigrateCommand)
-
-if __name__ == '__main__':
-    manager.run()
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)

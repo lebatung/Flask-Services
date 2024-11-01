@@ -1,4 +1,6 @@
 from flask_restful import Api
+
+from app.controllers.db_check import CheckDatabase
 from app.controllers.user import UserList, User
 from app.main.errors import errors
 
@@ -11,4 +13,4 @@ api = Api(
 
 api.add_resource(UserList, '/users')
 api.add_resource(User, '/users/<int:id>/')
-
+api.add_resource(CheckDatabase, '/check-database')
